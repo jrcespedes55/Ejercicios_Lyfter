@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Bulbasaur",
+        "hp": 45,
+        "type": "Grass",
+        "level":8
+    },
+    {
+        "name": "Test_G",
+        "hp": 45,
+        "type": "Grass",
+        "level":12
+    },
+    {
+        "name": "Charmander",
+        "hp": 38,
+        "type": "Fire",
+        "level":6
+    },
+
+    {   "name": "Test_F",
+        "hp": 45,
+        "type": "Fire",
+        "level":18
+    },
+
+    {   "name": "Test_F2",
+        "hp": 45,
+        "type": "Fire",
+        "level":8
+    },
+
+    {   "name": "Test_F3",
+        "hp": 45,
+        "type": "Fire",
+        "level":12
+    },
+
+    {
+        "name": "Pikachu",
+        "hp": 35,
+        "type": "Electric",
+        "level":8
+    },
+
+    {
+        "name": "TestE",
+        "hp": 40,
+        "type": "Electric",
+        "level":4
+    }
+]
