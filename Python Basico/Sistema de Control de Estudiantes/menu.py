@@ -2,7 +2,7 @@ import actions
 import Data.data
 
 def show_menu():
-    print("===== Student Management System =====\n")
+    print("\n===== Student Management System =====\n")
     print("1. Add students")
     print("2. View students")
     print("3. View top 3 students")
@@ -18,18 +18,24 @@ def get_menu_option():
 def run_menu(answer):
     match answer:
         case 1:
-            students = actions.add_students()
-            Data.data.save_students("Data/students.csv",students)
+            students = Data.data.read_students("Data/students.csv")
+            new_students = actions.add_students()
+
+            for student in new_students:
+                students.append(student)
+            Data.data.save_students("Data/students.csv", students)
 
         case 2:
             students = Data.data.read_students("Data/students.csv")
             actions.print_students(students)
 
         case 3:
-            print("Not implemented yet\n")
+            students = Data.data.read_students("Data/students.csv")
+            actions.top_three_students(students)
 
         case 4:
-            print("Not implemented yet\n")
+            students = Data.data.read_students("Data/students.csv")
+            actions.general_grades_average(students)
 
         case 0:
             print("Exit the system")
