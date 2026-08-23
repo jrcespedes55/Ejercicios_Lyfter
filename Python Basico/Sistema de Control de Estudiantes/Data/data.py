@@ -2,9 +2,16 @@ import csv
 
 
 def save_students(file_path, students):
-    with open(file_path, "w", encoding="utf-8", newline="") as file:
-        headers = students[0].keys()
+    headers = [
+        "name",
+        "section",
+        "spanish",
+        "english",
+        "social",
+        "science"
+    ]
 
+    with open(file_path, "w", encoding="utf-8", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=headers)
 
         writer.writeheader()
@@ -19,19 +26,25 @@ def read_students(file_path):
             csv_reader = csv.DictReader(file)
 
             for row in csv_reader:
-                student = {
-                    "name": row["name"],
-                    "section": row["section"],
-                    "spanish": int(row["spanish"]),
-                    "english": int(row["english"]),
-                    "social": int(row["social"]),
-                    "science": int(row["science"])
-                }
+                try:
+                    student = {
+                        "name": row["name"],
+                        "section": row["section"],
+                        "spanish": int(row["spanish"]),
+                        "english": int(row["english"]),
+                        "social": int(row["social"]),
+                        "science": int(row["science"])
+                    }
 
-                students.append(student)
+                    students.append(student)
+
+                except (ValueError, KeyError):
+                    print("A row in the CSV contains invalid data.")
 
     except FileNotFoundError:
-        pass
+        print("No student data file found.")
+    except PermissionError:
+        print("Permission denied when trying to read the file.")
 
     return students
 
