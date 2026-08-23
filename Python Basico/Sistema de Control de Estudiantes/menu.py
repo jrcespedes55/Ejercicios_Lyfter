@@ -37,6 +37,14 @@ def run_menu(answer):
             students = Data.data.read_students("Data/students.csv")
             actions.general_grades_average(students)
 
+        case 5:
+            students = Data.data.read_students("Data/students.csv")
+            Data.data.export_students_data(students)
+
+        case 6:
+            students = Data.data.import_students_data("students.csv")
+            actions.print_students(students)
+
         case 0:
             print("Exit the system")
 

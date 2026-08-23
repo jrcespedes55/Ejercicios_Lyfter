@@ -35,4 +35,54 @@ def read_students(file_path):
 
     return students
 
+def export_students_data(students):
+    columnas = ['Name', 'Section', 'Spanish', 'English', 'Social Studies', 'Science'] 
+
+    with open('students.csv', 'w', newline='', encoding='utf-8-sig') as file:
+        writer = csv.writer(file)
+        writer.writerow(columnas)
+        for student in students:
+            writer.writerow([
+                student["name"],
+                student["section"],
+                student["spanish"],
+                student["english"],
+                student["social"],
+                student["science"],
+                ])
+
+    print("¡Archivo CSV creado con éxito!")
+
+
+
+
+def import_students_data(file_path):
+    students = []
+
+    try:
+        with open(file_path, "r", encoding="utf-8-sig") as file:
+            csv_reader = csv.DictReader(file)
+
+            for row in csv_reader:
+                student = {
+                    "name": row["Name"],
+                    "section": row["Section"],
+                    "spanish": int(row["Spanish"]),
+                    "english": int(row["English"]),
+                    "social": int(row["Social Studies"]),
+                    "science": int(row["Science"])
+                }
+
+                students.append(student)
+
+    except FileNotFoundError:
+        print("File does not exist. Probably not exported yet.")
+    except ValueError:
+        print("Invalid value in the CSV.")
+    except KeyError:
+        print("The CSV file has unexpected columns.")
+
+    return students
+
+
 
