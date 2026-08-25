@@ -17,7 +17,8 @@ def save_students(file_path, students):
         writer.writeheader()
         writer.writerows(students)
 
-
+# Reads all the students from a CSV file, creates dictionaries for students data
+# and return a list. If there is no file it will let the user know.
 def read_students(file_path):
     students = []
 
@@ -43,11 +44,10 @@ def read_students(file_path):
 
     except FileNotFoundError:
         print("No student data file found.")
-    except PermissionError:
-        print("Permission denied when trying to read the file.")
 
     return students
 
+# Exports a CSV file to different directory.
 def export_students_data(students):
     columnas = ['Name', 'Section', 'Spanish', 'English', 'Social Studies', 'Science'] 
 
@@ -67,8 +67,8 @@ def export_students_data(students):
     print("¡Archivo CSV creado con éxito!")
 
 
-
-
+# Imports a CSV file to the 'Data' folder. 
+# In this folder the file will be used for the system functions.
 def import_students_data(file_path):
     students = []
 

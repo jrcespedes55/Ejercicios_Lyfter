@@ -1,8 +1,8 @@
 import actions
 import Data.data
 
-
-def show_menu():
+# Prints the menu in the console
+def show_menu():     
     print("\n===== Student Management System =====\n")
     print("1. Add students")
     print("2. View students")
@@ -10,9 +10,12 @@ def show_menu():
     print("4. View general average")
     print("5. Export students")
     print("6. Import students")
+    print("7. Delete student")
+    print("8. View failed students")
     print("0. Exit")
 
 
+# Gets the menu option from the user. Used a infinite loop so it waits for a valid option.
 def get_menu_option():
     while True:
         try:
@@ -21,12 +24,13 @@ def get_menu_option():
             if 0 <= answer <= 8:
                 return answer
 
-            print("Option not valid. Select a number from 0 to 6.")
+            print("Option not valid. Select a number from 0 to 8.")
 
         except ValueError:
             print("Invalid input. Please enter a number.")
 
 
+# Handles all the menu options logic.
 def run_menu(answer):
     students = Data.data.read_students("Data/students.csv")
 
@@ -65,6 +69,17 @@ def run_menu(answer):
                 )
 
                 print("Students imported successfully.")
+
+        case 7:
+            students = actions.delete_student(students)
+
+            Data.data.save_students(
+                "Data/students.csv",
+                students
+            )
+
+        case 8:
+            actions.print_failed_students(students)
 
         case 0:
             print("Exit the system")

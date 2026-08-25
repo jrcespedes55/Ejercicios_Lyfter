@@ -1,5 +1,6 @@
 import re
 
+# Valid data methods for the name, section and grade
 
 def is_valid_name(name):
     if not name.strip():
@@ -20,7 +21,7 @@ def is_valid_grade(grade):
     except ValueError:
         return False
 
-
+# Verifies if the student already exists.
 def student_exists(students, name, section):
     for student in students:
         if (
@@ -32,6 +33,7 @@ def student_exists(students, name, section):
     return False
 
 
+# Asks user for student data. Three next methods.
 def get_valid_name():
     while True:
         name = input("Full Name: ").strip()
@@ -62,6 +64,7 @@ def get_valid_grade(subject):
         print("Invalid grade. Enter a number between 0 and 100.")
 
 
+# Inserts student(s).
 def add_students(existing_students):
     students = []
 
@@ -121,11 +124,11 @@ def print_students(students):
         print(f"Science grade: {student['science']}")
         print()
 
-
+# Calculates student average.
 def student_grades_average(spanish, english, social, science):
     return (spanish + english + social + science) / 4
 
-
+# Calculates students average in general.
 def general_grades_average(students):
     if not students:
         print("There are no students to display.")
@@ -150,6 +153,7 @@ def general_grades_average(students):
         print()
 
 
+# Shows top 3 student averages.
 def top_three_students(students):
     if not students:
         print("There are no students to display.")
@@ -182,3 +186,75 @@ def top_three_students(students):
         print(f"Average: {student['average']:.2f}")
         print("--------------------")
 
+# Removes students.
+def delete_student(students):
+    if not students:
+        print("There are no students to delete.")
+        return students
+
+    name = input("Enter the student's full name: ").strip()
+    section = input("Enter the student's section: ").strip().upper()
+
+    for student in students:
+        if (
+            student["name"].lower() == name.lower()
+            and student["section"].upper() == section
+        ):
+            print("\nStudent found:")
+            print(f"Name: {student['name']}")
+            print(f"Section: {student['section']}")
+
+            while True:
+                confirmation = input(
+                    "Are you sure you want to delete this student? (y/n): "
+                ).strip().lower()
+
+                if confirmation == "y":
+                    students.remove(student)
+                    print("Student deleted successfully.")
+                    return students
+
+                if confirmation == "n":
+                    print("Deletion cancelled.")
+                    return students
+
+                print("Invalid option. Enter 'y' or 'n'.")
+
+    print("Student not found.")
+    return students
+
+# Shows disapproved grades.
+def print_failed_students(students):
+    failed_students = []
+
+    for student in students:
+        failed_subjects = {}
+
+        if student["spanish"] < 60:
+            failed_subjects["Spanish"] = student["spanish"]
+
+        if student["english"] < 60:
+            failed_subjects["English"] = student["english"]
+
+        if student["social"] < 60:
+            failed_subjects["Social Studies"] = student["social"]
+
+        if student["science"] < 60:
+            failed_subjects["Science"] = student["science"]
+
+        if failed_subjects:
+            failed_students.append((student, failed_subjects))
+
+    if not failed_students:
+        print("There are no failed students.")
+        return
+
+    print("\n===== Failed Students =====")
+
+    for student, failed_subjects in failed_students:
+        print(f"\nName: {student['name']}")
+        print(f"Section: {student['section']}")
+        print("Failed subjects:")
+
+        for subject, grade in failed_subjects.items():
+            print(f"- {subject}: {grade}")
