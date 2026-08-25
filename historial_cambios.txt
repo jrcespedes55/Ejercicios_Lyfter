@@ -1,0 +1,11 @@
+d3dc6c2 => Uploading first exercises
+Uploading first exercises
+
+Qué cambió: Se agregaron al repositorio remoto los ejercicios/proyectos anteriores del curso, organizados por módulos y submódulos.
+Por qué: para conservar en GitHub los trabajos realizados anteriormente y tenerlos versionados en un solo repositorio.
+
+e31fefa  => Initial commit
+Initial commit
+
+Qué cambió: se creó la estructura inicial del repositorio.
+Por qué: fue la creación inicial del repositorio para comenzar a trabajar con Git.

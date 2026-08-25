@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Bulbasaur",
+        "hp": 45,
+        "type": "Grass"
+    },
+    {
+        "name": "Charmander",
+        "hp": 39,
+        "type": "Fire"
+    },
+    {
+        "name": "Pikachu",
+        "hp": 35,
+        "type": "Electric"
+    },
+
+    {
+        "name": "Test",
+        "hp": 40,
+        "type": "Electric"
+    }
+]
