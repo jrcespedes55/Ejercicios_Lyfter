@@ -49,11 +49,11 @@ def read_students(file_path):
 
 # Exports a CSV file to different directory.
 def export_students_data(students):
-    columnas = ['Name', 'Section', 'Spanish', 'English', 'Social Studies', 'Science'] 
+    columns = ['Name', 'Section', 'Spanish', 'English', 'Social Studies', 'Science'] 
 
     with open('students.csv', 'w', newline='', encoding='utf-8-sig') as file:
         writer = csv.writer(file)
-        writer.writerow(columnas)
+        writer.writerow(columns)
         for student in students:
             writer.writerow([
                 student["name"],

@@ -31,8 +31,7 @@ def get_menu_option():
 
 
 # Handles all the menu options logic.
-def run_menu(answer):
-    students = Data.data.read_students("Data/students.csv")
+def run_menu(answer, students):
 
     match answer:
         case 1:
