@@ -4,9 +4,9 @@ class Person():
 
 class Bus:
 
-    def __init__(self):
+    def __init__(self, max_passengers):
         self.people = []
-        self.max_passengers = 10
+        self.max_passengers = max_passengers
 
     def show_bus_options(self):
         print("\n===== Bus Options =====\n")
@@ -40,8 +40,23 @@ class Bus:
             print("\nThe bus is empty, no passengers yet")
 
 
+def get_max_passengers():
+    while True:
+        try:
+            max_passengers = int(input("How many passengers can the bus hold? "))
+
+            if max_passengers > 0:
+                return max_passengers
+
+            print("The capacity must be greater than 0.")
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+
 def main():
-    my_bus = Bus()
+    max_passengers = get_max_passengers()
+    my_bus = Bus(max_passengers)
 
     while(True):
         my_bus.show_bus_options()
