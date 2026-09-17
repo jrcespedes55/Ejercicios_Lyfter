@@ -1,6 +1,12 @@
 
 class Rectangle:
     def __init__(self, width, height):
+        if width < 0:
+            raise ValueError("El ancho no puede ser negativo")
+
+        if height < 0:
+            raise ValueError("La altura no puede ser negativa")
+
         self.width = width
         self.height = height
 
@@ -15,36 +21,38 @@ def valid_width():
     while True:
         try:
             width = int(input("Ingrese el ancho: "))
-        
-            if width < 0:
-                print("Existe un valor negativo, los valores deben ser positivos")
-                continue
-            break 
+            break
         except ValueError:
-            print("Solo enteros positivos")
+            print("Solo enteros")
+
     return width
+
 
 def valid_height():
     while True:
         try:
             height = int(input("Ingrese la altura: "))
-        
-            if height < 0:
-                print("Existe un valor negativo, los valores deben ser positivos")
-                continue
-            break 
+            break
         except ValueError:
-            print("Solo enteros positivos")
+            print("Solo enteros")
+
     return height
 
 
 def main():
-    height = valid_height()
-    width = valid_width()
+    while True:
+        height = valid_height()
+        width = valid_width()
 
-    rectangle = Rectangle(width,height)
-    print(f"\nEl área del rectángulo es de: {rectangle.get_area()} ") 
-    print(f"El perímetro del rectángulo es de: {rectangle.get_perimeter()} ") 
+        try:
+            rectangle = Rectangle(width, height)
+            break
+        except ValueError as error:
+            print(error)
+
+    print(f"\nEl área del rectángulo es de: {rectangle.get_area()}")
+    print(f"El perímetro del rectángulo es de: {rectangle.get_perimeter()}")
+
 
 if __name__ == "__main__":
     main()
