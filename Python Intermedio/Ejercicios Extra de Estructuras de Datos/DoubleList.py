@@ -120,4 +120,5 @@ def main():
     lista.print_backward()
 
 
-main()
+if __name__ == "__main__":
+    main()

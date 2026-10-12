@@ -66,5 +66,5 @@ def main():
     print("\nCola después de eliminar:")
     queue.print_all()
 
-
-main()
+if __name__ == "__main__":
+    main()

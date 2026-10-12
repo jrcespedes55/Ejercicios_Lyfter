@@ -38,5 +38,5 @@ def main():
 
     tree.print_structure(tree.root)
 
-
-main()
+if __name__ == "__main__":
+    main()

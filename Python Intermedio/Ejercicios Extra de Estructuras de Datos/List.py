@@ -109,5 +109,5 @@ def main():
     lista.delete(40)
     lista.print_all()
 
-
-main()
+if __name__ == "__main__":
+    main()

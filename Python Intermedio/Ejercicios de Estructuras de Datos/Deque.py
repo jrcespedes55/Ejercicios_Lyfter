@@ -94,5 +94,5 @@ def main():
 
     deque.print_structure()
 
-
-main()
+if __name__ == "__main__":
+    main()
