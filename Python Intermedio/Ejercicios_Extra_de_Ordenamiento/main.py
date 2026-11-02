@@ -1,5 +1,6 @@
 from Ejercicios_de_Estructuras_de_Datos.Stack import Node as StackNode, Stack
 from Ejercicios_Extra_de_Ordenamiento.Bubble_sort import bubble_sort_linked
+from Ejercicios_Extra_de_Ordenamiento.Bubble_sort import validated_bubble_sort
 from Ejercicios_de_Estructuras_de_Datos.Deque import Node as DequeNode, Deque
 
 from Ejercicios_de_Estructuras_de_Datos.BinaryTree import (
@@ -10,6 +11,20 @@ from Ejercicios_Extra_de_Ordenamiento.Bubble_sort_tree import bubble_sort_tree
 
 
 def main():
+
+
+    print("\n===== VALIDATED BUBBLE SORT =====")
+
+    print(validated_bubble_sort([5, 2, 4, 1, 3]))
+
+    print(validated_bubble_sort([5, "hola", 2]))
+
+    print(validated_bubble_sort([]))
+
+    print(validated_bubble_sort([8.5, 2.3, 4.1, 1.5]))
+
+
+
     stack = Stack()
 
     stack.push(StackNode(5))

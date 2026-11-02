@@ -28,3 +28,29 @@ def bubble_sort_linked(head):
             current_node = current_node.next
 
     return iterations, swaps
+
+
+def bubble_sort(my_list):
+
+    for pass_number in range(len(my_list) - 1):
+
+        for index in range(len(my_list) - 1 - pass_number):
+
+            if my_list[index] > my_list[index + 1]:
+                bubble = my_list[index]
+                my_list[index] = my_list[index + 1]
+                my_list[index + 1] = bubble
+
+    return my_list
+
+
+def validated_bubble_sort(my_list):
+
+    if len(my_list) == 0:
+        return "Error: La lista está vacía"
+
+    for element in my_list:
+        if not isinstance(element, (int, float)) or isinstance(element, bool):
+            return "Error: La lista contiene elementos no numéricos"
+
+    return bubble_sort(my_list)
