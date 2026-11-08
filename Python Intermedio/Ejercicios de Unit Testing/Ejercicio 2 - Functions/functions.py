@@ -36,3 +36,51 @@ def count_case_letters(text):
             lowercase += 1
 
     return uppercase, lowercase
+
+
+# ---- Ordenar alfabéticamente ----
+
+def sort_words_alphabetically(text):
+    my_list = []
+
+    word = ""
+
+    for char in text:
+        if char.isalpha():
+            word += char
+        else:
+            my_list.append(word)
+            word = ""
+
+    my_list.append(word)
+
+    my_list.sort()
+
+    return "-".join(my_list)
+
+
+# ---- Números primos de una lista ----
+
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+
+    return True
+
+
+def get_prime_numbers(my_list):
+    new_list = []
+
+    index = 0
+
+    while index < len(my_list):
+        if is_prime(my_list[index]):
+            new_list.append(my_list[index])
+
+        index += 1
+
+    return new_list
