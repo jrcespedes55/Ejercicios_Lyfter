@@ -11,10 +11,10 @@ def test_read_lines_success():
     
     # 3. Reemplazamos temporalmente la función 'open' integrada de Python
     with patch("builtins.open", mock):
-        resultado = read_lines("ruta/falsa/archivo.txt")
+        result = read_lines("ruta/falsa/archivo.txt")
     
     # 4. Verificaciones (Assertions)
-    assert resultado == ["Línea 1\n", "Línea 2\n", "Línea 3"]
+    assert result == ["Línea 1\n", "Línea 2\n", "Línea 3"]
     mock.assert_called_once_with("ruta/falsa/archivo.txt", "r")
 
 

@@ -15,12 +15,13 @@ def calculate_average(*numbers):
 
 # ---- Conversión de temperatura ----
 
-def convert_temperature(temperature, conversion):
-    if conversion == "C":
+def convert_temperature(temperature, from_unit):
+
+    if from_unit == "C":
         return (temperature * 9/5) + 32
 
-    elif conversion == "F":
+    elif from_unit == "F":
         return (temperature - 32) * 5/9
 
     else:
-        raise ValueError("Invalid conversion. Use 'C' or 'F'")
+        raise ValueError("Invalid unit. Use 'C' or 'F'")
